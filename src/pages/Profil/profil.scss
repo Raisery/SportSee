@@ -1,0 +1,108 @@
+@import '../../variables';
+
+.profil {
+    display: flex;
+
+    &__main {
+        height: 100%;
+        padding: 70px 90px 90px 110px;
+
+        & .title {
+            display: flex;
+
+            & h1, h2 {
+                font-size: 48px;
+                font-weight: 500;
+            }
+
+            & h2 {
+                color: $primaryColor;
+                margin-left: 12px;
+            }
+        }
+
+        > p {
+            margin-top: 40px;
+            font-size: 18px;
+            font-weight: 400;
+        }
+    }
+}
+
+.square_graphic {
+    height: 263px;
+    width: 258px;
+}
+
+.board {
+    display: flex;
+    gap: 30px;
+    margin-top: 80px;
+    &__graphics {
+        width: 835px;
+
+        &__square_graphics {
+            display: flex;
+            gap: 30px;
+        }
+    }
+
+    &__energies {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+.weight_graphic {
+    height: 320px;
+    padding: 25px;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & p {
+            font-size: 15px;
+        }
+
+        & ul {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            list-style: none;
+            & li {
+                font-size: 14px;
+
+                &:first-child::before {
+                    content: ' ';
+                    background: black;
+                    display: inline-block; 
+                    width: 8px;
+                    height: 8px;
+                    margin-right: 10px;
+                    border-radius: 50%;
+                }
+
+                &:last-child::before {
+                    content: ' ';
+                    background: red;
+                    display: inline-block; 
+                    width: 8px;
+                    height: 8px;
+                    margin-right: 10px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+.objective_graphics {
+    background: $primaryColor;
+}
+
+.radar_graphic {
+    background: $accentColor;
+}
+
