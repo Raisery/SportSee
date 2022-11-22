@@ -1,8 +1,8 @@
 /**
- * model for User
+ * model for Main
  */
 
-export default class User {
+export default class Main {
 
     constructor(data) {
         this.userId = data.id
@@ -10,4 +10,5 @@ export default class User {
         this.score = data.score
         this.keyData = data.keyData
     }
+        
 }

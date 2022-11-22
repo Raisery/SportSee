@@ -29,10 +29,6 @@
     }
 }
 
-.square_graphic {
-    height: 263px;
-    width: 258px;
-}
 
 .board {
     display: flex;
@@ -53,56 +49,3 @@
         gap: 40px;
     }
 }
-
-.weight_graphic {
-    height: 320px;
-    padding: 25px;
-    &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        & p {
-            font-size: 15px;
-        }
-
-        & ul {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            list-style: none;
-            & li {
-                font-size: 14px;
-
-                &:first-child::before {
-                    content: ' ';
-                    background: black;
-                    display: inline-block; 
-                    width: 8px;
-                    height: 8px;
-                    margin-right: 10px;
-                    border-radius: 50%;
-                }
-
-                &:last-child::before {
-                    content: ' ';
-                    background: red;
-                    display: inline-block; 
-                    width: 8px;
-                    height: 8px;
-                    margin-right: 10px;
-                    border-radius: 50%;
-                }
-            }
-        }
-    }
-}
-
-.objective_graphics {
-    background: $primaryColor;
-}
-
-.radar_graphic {
-    background: $accentColor;
-}
-

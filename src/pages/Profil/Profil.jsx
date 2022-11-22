@@ -1,23 +1,44 @@
 import '../../css/profil.css'
 import Navbar from "../../components/Navbar/Navbar"
 import getMockedActivity from '../../mock/MockedActivity'
-import getMockedUser from '../../mock/MockedUser'
+import getMockedMain from '../../mock/MockedMain'
 import getMockedAverageSessions from '../../mock/MockedAverageSessions'
 import getMockedPerformance from '../../mock/MockedPerformance'
-import getFetchedActivity from '../../fetch/fetchActivity'
-function Weight() {
-    return (
-        <div className='weight_graphic'>
-            <div className='weight_graphic__header'>
-                <p>Activité quotidienne</p>
-                <ul className='legend'>
-                    <li id='weight'>Poids (kg)</li>
-                    <li id='calories'>Calories brulées (kCal)</li>
-                </ul>
-            </div>
-            <div className='weight_graphic__content'>
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import { useParams } from 'react-router-dom'
 
-            </div>
+
+function ActivityGraphic({activity}) {
+    return (
+        <div className='activity_graphic'>
+            <p className='activity_graphic__title'>Activité quotidienne</p>
+            <BarChart width={835} height={320} data={activity.sessions} barCategoryGap="35%" barGap={8}>
+                <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                <XAxis 
+                    dataKey="formattedDay"
+                    tickLine={false}
+                    axisLine={{stroke: '#DEDEDE'}} 
+                    tickMargin={15} />
+                <YAxis 
+                    orientation='right'
+                    yAxisId='right'
+                    dataKey="kilogram" 
+                    domain={['dataMin-1', 'dataMax+1']} 
+                    allowDecimals={false}
+                    axisLine={false}
+                    tickLine={false} 
+                    tickCount={10}
+                    allowDataOverflow={true}/>
+                <YAxis 
+                    yAxisId='left'
+                    dataKey="calories" 
+                    domain={[dataMin => (dataMin - dataMin), 'dataMax+50']}
+                    hide={true} />
+                <Tooltip />
+                <Legend verticalAlign='top' align='right' iconType='circle' iconSize='8' wrapperStyle={{ top: '-20px'}}/>
+                <Bar yAxisId='right' dataKey="kilogram" fill="#282D30" unit="kg"/>
+                <Bar yAxisId='left' dataKey="calories" fill="#E60000" unit="kCal"/>
+            </BarChart>
         </div>
     )
 }
@@ -49,32 +70,53 @@ function KPI() {
     )
 } 
 
+function getAllUserInfos(id) {
+    const main = getMockedMain(id)
+    const activity = getMockedActivity(id)
+    const averageSessions = getMockedAverageSessions(id)
+    const performance = getMockedPerformance(id)
 
-let test = getFetchedActivity(12)
-console.log(test)
+    return {main, activity, averageSessions, performance}
+}
 
 function Profil() {
+
+    const { id, method } = useParams();
+    var user
+    if(method === 'mock') {
+        user = getAllUserInfos(id)
+    }
+    else if(method === 'fetch'){
+        /* get user by fetch */
+    }
+    else {
+        return (
+            <main className='profil'>
+                <h1>Les seules methodes acceptées sont "mock" et "fetch"</h1>
+            </main>
+        )
+    }
+
+    if(!user.main) {
+        return (
+            <main className='profil'>
+                <h1>Cette URL ne correspond a aucun utilisateur enregistré</h1>
+            </main>
+        )
+    }    
+
     return (
         <main className="profil">
             <Navbar />
             <div className='profil__main'>
                 <div className='title'>
-                    <h1>Bonjour</h1><h2>Thomas</h2>
+                    <h1>Bonjour</h1><h2>{user.main.userInfos.firstName}</h2>
                 </div>
                 <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 
                 <div className='board'>
                     <div className='board__graphics'>
-                        <Weight />
-                        <div className='board__graphics__square_graphics'>
-                            <Objective />
-                            <Radar />
-                            <KPI />
-                        </div>
-
-                    </div>
-                    <div className='board__energies'>
-
+                        <ActivityGraphic activity={user.activity}/>
                     </div>
                 </div>
             </div> 

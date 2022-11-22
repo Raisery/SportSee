@@ -13,7 +13,7 @@ function Router() {
       <Header />
       <Routes>
         <Route path='*' element={<NotFound />} />
-        <Route exact path='/Profil' element= {<Profil />} />
+        <Route exact path ='/Profil/:id/:method' element= {<Profil />} />
         <Route exact path='/Home' element= {<Home />} />
         <Route exact path='/Settings' element= {<Settings/>} />
         <Route exact path='/Community' element= {<Community />} />

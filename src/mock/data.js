@@ -69,6 +69,11 @@ const USER_ACTIVITY = [
                 day: '2020-07-07',
                 kilogram: 76,
                 calories: 390
+            },
+            {
+                day: '2020-07-08',
+                kilogram: 75,
+                calories: 375
             }
         ]
     },

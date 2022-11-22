@@ -14,9 +14,9 @@ export default class Performance {
 
     constructor(data) {
         this.userId = data.userId
-        this.data = data.data.map( notMappedData => {
-            notMappedData.kind = KIND[notMappedData.kind-1]
-            return notMappedData
+        this.data = data.data.map( mappedData => {
+            mappedData.kind = KIND[mappedData.kind-1]
+            return mappedData
         })
     }
 
