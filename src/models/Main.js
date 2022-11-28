@@ -1,17 +1,8 @@
-/**
- * model for Main
- */
+import caloriesIcon from "../assets/caloriesIcon.svg"
+import proteinIcon from "../assets/proteinIcon.svg"
+import glucidIcon from "../assets/glucidIcon.svg"
+import lipidIcon from "../assets/lipidIcon.svg"
 
-export default class Main {
-
-    constructor(data) {
-        this.userId = data.id
-        this.userInfos = data.userInfos
-        this.score = data.score
-        this.keyData = data.keyData
-    }
-        
-}
 
 /**
  * Main class contains user's main data
@@ -22,46 +13,51 @@ export default class Main {
  */
 
 export default class Main {
-	constructor(user) {
-		this.id = user.id;
-		this.keyData = [
+
+    constructor(data) {
+        this.userId = data.id
+        this.userInfos = data.userInfos
+
+		if(data.score) this.score = data.score
+		else this.score = data.todayScore
+
+        this.keyData = [
 			{
 				icon: caloriesIcon,
 				unit: 'kCal',
 				label: 'Calories',
-				amount: user.keyData.calorieCount,
+				amount: data.keyData.calorieCount,
 			},
 			{
 				icon: proteinIcon,
 				unit: 'g',
 				label: 'Proteines',
-				amount: user.keyData.proteinCount,
+				amount: data.keyData.proteinCount,
 			},
 			{
-				icon: carbsIcon,
+				icon: glucidIcon,
 				unit: 'g',
 				label: 'Glucides',
-				amount: user.keyData.carbohydrateCount,
+				amount: data.keyData.carbohydrateCount,
 			},
 			{
-				icon: fatIcon,
+				icon: lipidIcon,
 				unit: 'g',
 				label: 'Lipides',
-				amount: user.keyData.lipidCount,
+				amount: data.keyData.lipidCount,
 			},
 		];
-		this.userInfos = user.userInfos;
-		if (user.todayScore) {
-			this.score = user.todayScore * 100;
-		} else {
-			this.score = user.score * 100;
-		}
+
 		this.percentage = [
 			{
-				name: 'goals',
-				value: this.score,
+				name: 'done',
+				value: this.score*100,
 			},
-			{ name: 'scale', value: 100 - this.score },
+			{ 
+				name: 'goal', 
+				value: 100 - (this.score*100)
+			},
 		];
-	}
+    }
 }
+

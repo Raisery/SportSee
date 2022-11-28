@@ -5,9 +5,9 @@
 
     &__main {
         height: 100%;
-        padding: 70px 90px 90px 110px;
+        padding: 60px 90px 0px 100px;
 
-        & .title {
+        &__title {
             display: flex;
 
             & h1,
@@ -23,70 +23,32 @@
         }
 
         > p {
-            margin-top: 40px;
+            margin-top: 30px;
             font-size: 18px;
             font-weight: 400;
         }
     }
 }
 
-.board {
+.charts {
     display: flex;
+    margin-top: 70px;
     gap: 30px;
-    margin-top: 80px;
-    margin-bottom: 90px;
-    padding: 25px;
-    background: $grey;
-    height: 320px;
-    width: 835px;
-    border-radius: 5px;
-    &__graphics {
-        &__square_graphics {
-            display: flex;
-            gap: 30px;
-        }
-    }
 
-    &__energies {
+    &__left {
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 30px;
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 }
 
-.custom-tooltip {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 25px;
-    background: #ffffff;
-    font-size: 8px;
-    border: none;
-}
-
-.square_graphic {
-    width: 258px;
-    height: 263px;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.average_graphic {
-    position: relative;
-
-    &__label {
-        position: absolute;
-        top: 30px;
-        left: 35px;
-        width: 147px;
-        font-size: 15px;
-        opacity: 0.5;
-        color: #ffffff;
-    }
-}
-
-.square_board {
+.square_charts {
     display: flex;
     gap: 30px;
 }
