@@ -1,0 +1,28 @@
+@import '../../variables';
+
+.average-chart {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+
+    &__label {
+        position: absolute;
+        top: 30px;
+        left: 35px;
+        width: 147px;
+        font-size: 15px;
+        opacity: 0.5;
+        color: #ffffff;
+    }
+}
+
+.custom-tooltip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 25px;
+    background: #ffffff;
+    font-size: 8px;
+    border: none;
+}

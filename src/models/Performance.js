@@ -2,12 +2,12 @@
  * model for Performance
  */
 const KIND = [ 
-    "cardio",
-    "energy",
-    "endurance",
-    "strength",
-    "speed",
-    "intensity"
+    "Cardio",
+    "Energie",
+    "Endurance",
+    "Force",
+    "Vitesse",
+    "Intensité"
 ]
 
 export default class Performance {
@@ -15,7 +15,7 @@ export default class Performance {
     constructor(data) {
         this.userId = data.userId
         this.data = data.data.map( mappedData => {
-            mappedData.kind = KIND[mappedData.kind-1]
+            mappedData.category = KIND[mappedData.kind-1]
             return mappedData
         })
     }

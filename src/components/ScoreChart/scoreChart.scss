@@ -1,0 +1,39 @@
+@import '../../variables';
+
+.score-chart {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+
+    &__title {
+        position: absolute;
+        z-index: 1;
+        margin-left: 30px;
+        margin-top: 30px;
+    }
+
+    &__infos {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        & p {
+            width: 95px;
+            text-align: center;
+            line-height: 26px;
+            font-size: 18px;
+            color: #74798c;
+        }
+
+        & .percent {
+            font-size: 24px;
+            color: black;
+        }
+    }
+}

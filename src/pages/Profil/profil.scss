@@ -10,7 +10,8 @@
         & .title {
             display: flex;
 
-            & h1, h2 {
+            & h1,
+            h2 {
                 font-size: 48px;
                 font-weight: 500;
             }
@@ -29,14 +30,17 @@
     }
 }
 
-
 .board {
     display: flex;
     gap: 30px;
     margin-top: 80px;
+    margin-bottom: 90px;
+    padding: 25px;
+    background: $grey;
+    height: 320px;
+    width: 835px;
+    border-radius: 5px;
     &__graphics {
-        width: 835px;
-
         &__square_graphics {
             display: flex;
             gap: 30px;
@@ -48,4 +52,41 @@
         flex-direction: column;
         gap: 40px;
     }
+}
+
+.custom-tooltip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 25px;
+    background: #ffffff;
+    font-size: 8px;
+    border: none;
+}
+
+.square_graphic {
+    width: 258px;
+    height: 263px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.average_graphic {
+    position: relative;
+
+    &__label {
+        position: absolute;
+        top: 30px;
+        left: 35px;
+        width: 147px;
+        font-size: 15px;
+        opacity: 0.5;
+        color: #ffffff;
+    }
+}
+
+.square_board {
+    display: flex;
+    gap: 30px;
 }
