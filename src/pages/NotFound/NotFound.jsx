@@ -1,20 +1,19 @@
-import { useLocation, Navigate} from "react-router-dom"
+import '../../css/notFound.css'
+import { useLocation, Navigate } from 'react-router-dom'
 
 function NotFound() {
+    let location = useLocation()
 
-    let location = useLocation();
-    
-    if(location.pathname === "/") return  <Navigate to="/Home" />
-    if(location.pathname !== "/NotFound") return <Navigate to="/NotFound" />
+    if (location.pathname === '/') return <Navigate to="/Home" />
+    if (location.pathname !== '/NotFound') return <Navigate to="/NotFound" />
 
     return (
-        <main>
-            <div className="not-found">
-                <h1>Not found 404</h1>
+        <main className="not-found">
+            <div className="not-found__message">
+                <h1>La page que vous demandez n'existe pas</h1>
             </div>
         </main>
-        
     )
 }
- 
+
 export default NotFound

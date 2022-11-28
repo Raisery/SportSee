@@ -19,6 +19,7 @@ function getAllUserInfos(id) {
     const averageSessions = getMockedAverageSessions(id)
     const performance = getMockedPerformance(id)
 
+    console.log(main)
     return { main, activity, averageSessions, performance }
 }
 
@@ -27,33 +28,53 @@ function MockedProfil() {
 
     const user = getAllUserInfos(id)
 
+    function getDisplay(user) {
+        if (user.main) {
+            return (
+                <div className="profil__main">
+                    <div className="profil__main__title">
+                        <h1>Bonjour</h1>
+                        <h2>{user.main.userInfos.firstName}</h2>
+                    </div>
+                    <p>
+                        Félicitation ! Vous avez explosé vos objectifs hier 👏
+                    </p>
+
+                    <div className="charts">
+                        <div className="charts__left">
+                            <ActivityChart data={user.activity} />
+
+                            <div className="square_charts">
+                                <AverageChart data={user.averageSessions} />
+                                <PerformanceChart data={user.performance} />
+                                <ScoreChart data={user.main} />
+                            </div>
+                        </div>
+                        <div className="charts__right">
+                            {user.main.keyData.map((stat) => (
+                                <StatCard key={stat.label} data={stat} />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div className="profil__loading">
+                    <h1 className="profil__loading__error">
+                        Erreur lors de la récuperation des données
+                    </h1>
+                </div>
+            )
+        }
+    }
+
+    const display = getDisplay(user)
+
     return (
         <main className="profil">
             <Navbar />
-            <div className="profil__main">
-                <div className="profil__main__title">
-                    <h1>Bonjour</h1>
-                    <h2>{user.main.userInfos.firstName}</h2>
-                </div>
-                <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-
-                <div className="charts">
-                    <div className="charts__left">
-                        <ActivityChart data={user.activity} />
-
-                        <div className="square_charts">
-                            <AverageChart data={user.averageSessions} />
-                            <PerformanceChart data={user.performance} />
-                            <ScoreChart data={user.main} />
-                        </div>
-                    </div>
-                    <div className="charts__right">
-                        {user.main.keyData.map((stat) => (
-                            <StatCard key={stat.label} data={stat} />
-                        ))}
-                    </div>
-                </div>
-            </div>
+            {display}
         </main>
     )
 }

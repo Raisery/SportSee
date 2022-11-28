@@ -31,6 +31,7 @@ export default function ScoreChart({ data }) {
                     cornerRadius={5}
                     paddingAngle={0}
                     dataKey="value"
+                    stroke="none"
                 >
                     {data.percentage.map((entry, index) => (
                         <Cell

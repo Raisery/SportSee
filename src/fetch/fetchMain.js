@@ -12,11 +12,11 @@ function generate(setMain, setCards, data) {
     
 
 
-function getFetchedMain(id, setMain, setCards) {
+function getFetchedMain(id, setMain, setCards, setIsError) {
     fetch(`http://localhost:3000/user/${id}`)
         .then( response => response.json() )
         .then(data => generate(setMain, setCards, new Main(data.data)))
-        .catch(error => console.error)
+        .catch(error => setIsError(true))
 }
 
 export default getFetchedMain

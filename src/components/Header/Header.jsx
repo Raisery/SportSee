@@ -8,9 +8,9 @@ function Header() {
             <img src={logo} alt="Logo" />
             <div className="header__menu">
                 <Link to="/Home">Accueil</Link>
-                <Link to="/Profil/mock/12/">Profil</Link>
+                <Link to="/Profil/12/">Profil</Link>
                 <Link to="/Settings">Réglage</Link>
-                <Link to="/Profil/12">Communauté</Link>
+                <Link to="/Profil/mock/12">Communauté</Link>
             </div>
         </header>
     )
