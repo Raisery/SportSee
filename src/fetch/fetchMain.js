@@ -11,7 +11,13 @@ function generate(setMain, setCards, data) {
 }
     
 
-
+/**
+ * 
+ * @param {number} id - The id of the user
+ * @callback setMain - The useState callback to send the result of ScoreChart
+ * @callback setCards - the useState callback to send the result of StatCards
+ * @callback setIsError - The useState callback to send the error
+ */
 function getFetchedMain(id, setMain, setCards, setIsError) {
     fetch(`http://localhost:3000/user/${id}`)
         .then( response => response.json() )
