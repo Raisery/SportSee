@@ -1,8 +1,14 @@
 import '../../css/scoreChart.css'
 import { PieChart, Pie, Cell } from 'recharts'
+import PropTypes from 'prop-types'
+
+// eslint-disable-next-line no-unused-vars
+import Main from '../../models/Main'
 
 /**
- * KPI (key performance indicator)
+ *
+ * @param {Main} data - data from fetch or mock
+ * @returns The score chart from datas in param
  */
 export default function ScoreChart({ data }) {
     const background = '#FBFBFB'
@@ -60,4 +66,8 @@ export default function ScoreChart({ data }) {
             </PieChart>
         </div>
     )
+}
+
+ScoreChart.propTypes = {
+    data: PropTypes.object,
 }

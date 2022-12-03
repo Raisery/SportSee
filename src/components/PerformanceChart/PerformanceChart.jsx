@@ -1,4 +1,5 @@
 import '../../css/performanceChart.css'
+import PropTypes from 'prop-types'
 import {
     PolarGrid,
     RadarChart,
@@ -7,6 +8,14 @@ import {
     Radar,
 } from 'recharts'
 
+// eslint-disable-next-line no-unused-vars
+import Performance from '../../models/Performance'
+
+/**
+ *
+ * @param {Performance} data - data from fetch or mock
+ * @returns The performance chart from datas in param
+ */
 export default function PerformanceChart({ data }) {
     return (
         <div className="performance-chart">
@@ -54,4 +63,8 @@ export default function PerformanceChart({ data }) {
             </RadarChart>
         </div>
     )
+}
+
+PerformanceChart.propTypes = {
+    data: PropTypes.object,
 }

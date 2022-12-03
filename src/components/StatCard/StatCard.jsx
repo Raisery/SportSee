@@ -1,5 +1,14 @@
 import '../../css/statCard.css'
+import PropTypes from 'prop-types'
 
+// eslint-disable-next-line no-unused-vars
+import KeyData from '../../models/KeyData'
+
+/**
+ *
+ * @param {KeyData} data
+ * @returns The stat card from the data in param
+ */
 export default function StatCard({ data }) {
     return (
         <div className="stat-card">
@@ -13,4 +22,8 @@ export default function StatCard({ data }) {
             </div>
         </div>
     )
+}
+
+StatCard.propTypes = {
+    data: PropTypes.object,
 }

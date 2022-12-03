@@ -1,6 +1,10 @@
 import '../../css/averageChart.css'
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts'
 import { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+
+// eslint-disable-next-line no-unused-vars
+import AverageSessions from '../../models/AverageSessions'
 
 class CustomizedAxisTick extends PureComponent {
     render() {
@@ -35,6 +39,11 @@ const CustomTooltip = ({ active, payload }) => {
     return null
 }
 
+/**
+ *
+ * @param {AverageSessions} data - data from fetch or mock
+ * @returns The average sessions chart from datas in param
+ */
 export default function AverageChart({ data }) {
     return (
         <div className="average-chart">
@@ -86,4 +95,8 @@ export default function AverageChart({ data }) {
             <p className="average-chart__label">Durée moyenne des sessions</p>
         </div>
     )
+}
+
+AverageChart.propTypes = {
+    data: PropTypes.object,
 }

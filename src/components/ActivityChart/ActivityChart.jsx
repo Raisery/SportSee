@@ -1,6 +1,7 @@
 import '../../css/activityChart.css'
 import black_dot from '../../assets/black_dot.svg'
 import red_dot from '../../assets/red_dot.svg'
+import PropTypes from 'prop-types'
 import {
     ResponsiveContainer,
     BarChart,
@@ -12,6 +13,14 @@ import {
     Legend,
 } from 'recharts'
 
+// eslint-disable-next-line no-unused-vars
+import Activity from '../../models/Activity'
+
+/**
+ *
+ * @param {Activity} data - data from fetch or mock
+ * @returns The activity chart from datas in param
+ */
 export default function ActivityChart({ data }) {
     const black = '#282D30'
     const red = '#E60000'
@@ -116,4 +125,8 @@ export default function ActivityChart({ data }) {
             </ResponsiveContainer>
         </div>
     )
+}
+
+ActivityChart.propTypes = {
+    data: PropTypes.object,
 }
