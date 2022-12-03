@@ -9,7 +9,12 @@ import getFetchedMain from '../../fetch/fetchMain'
 import getFetchedPerformance from '../../fetch/fetchPerformance'
 import getFetchedUser from '../../fetch/fetchedUser'
 
-function MockedProfil() {
+/**
+ * Component for display the profil page
+ *
+ * @returns The profil page with fetched datas or error message if datas are not valid
+ */
+export default function MockedProfil() {
     const [activity, setActivity] = useState(null)
     const [average, setAverage] = useState(null)
     const [main, setMain] = useState(null)
@@ -73,6 +78,10 @@ function MockedProfil() {
         </div>
     )
 
+    /**
+     *
+     * @returns The main page if all datas are fetched or the loading page if not
+     */
     function isLoaded() {
         if (
             cards === null ||
@@ -95,5 +104,3 @@ function MockedProfil() {
         </main>
     )
 }
-
-export default MockedProfil

@@ -13,21 +13,34 @@ import PerformanceChart from '../../components/PerformanceChart/PerformanceChart
 import ScoreChart from '../../components/ScoreChart/ScoreChart'
 import StatCard from '../../components/StatCard/StatCard'
 
+/**
+ * Get all user infos by id
+ * @param {number} id - User id
+ * @returns {Object} - All user's infos
+ */
 function getAllUserInfos(id) {
     const main = getMockedMain(id)
     const activity = getMockedActivity(id)
     const averageSessions = getMockedAverageSessions(id)
     const performance = getMockedPerformance(id)
-
-    console.log(main)
     return { main, activity, averageSessions, performance }
 }
 
-function MockedProfil() {
+/**
+ * Component for display the profil page
+ *
+ * @returns The profil page with mocked datas or error message if datas are not valid
+ */
+export default function MockedProfil() {
     const { id } = useParams()
 
     const user = getAllUserInfos(id)
 
+    /**
+     *
+     * @param {Object} user - user object
+     * @returns The loading page or main page if datas are valid or error if datas are not valid
+     */
     function getDisplay(user) {
         if (user.main) {
             return (
@@ -78,5 +91,3 @@ function MockedProfil() {
         </main>
     )
 }
-
-export default MockedProfil
