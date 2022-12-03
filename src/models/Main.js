@@ -19,8 +19,6 @@ export default class Main {
 
 		if(data.score) this.score = data.score
 		else this.score = data.todayScore
-
-		console.log(typeof(caloriesIcon))
         this.keyData = [
 			new KeyData(caloriesIcon, 'kCal', 'Calories', data.keyData.calorieCount),
 			new KeyData(proteinIcon, 'g', 'Proteines', data.keyData.proteinCount),
