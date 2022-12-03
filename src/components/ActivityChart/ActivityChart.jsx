@@ -17,6 +17,7 @@ import {
 import Activity from '../../models/Activity'
 
 /**
+ * Component for displaying a chart with Activity object
  *
  * @param {Activity} data - data from fetch or mock
  * @returns The activity chart from datas in param

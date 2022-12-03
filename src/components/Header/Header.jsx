@@ -2,7 +2,12 @@ import logo from '../../assets/logo.svg'
 import '../../css/header.css'
 import { Link } from 'react-router-dom'
 
-function Header() {
+/**
+ * Component for displaying header bar
+ *
+ * @returns The header of the page
+ */
+export default function Header() {
     return (
         <header className="header">
             <img src={logo} alt="Logo" />
@@ -15,5 +20,3 @@ function Header() {
         </header>
     )
 }
-
-export default Header

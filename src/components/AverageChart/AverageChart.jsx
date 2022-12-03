@@ -40,6 +40,7 @@ const CustomTooltip = ({ active, payload }) => {
 }
 
 /**
+ * Component for displaying a chart with AverageSessions object
  *
  * @param {AverageSessions} data - data from fetch or mock
  * @returns The average sessions chart from datas in param
