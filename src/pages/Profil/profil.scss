@@ -86,3 +86,21 @@
         width: 100%;
     }
 }
+
+@media screen and (max-width: 1440px) {
+    .profil {
+        &__main {
+            margin-top: 100px;
+            margin-left: 147px;
+            padding: 0;
+        }
+    }
+
+    .charts {
+        flex-direction: column;
+
+        &__right {
+            flex-direction: row;
+        }
+    }
+}

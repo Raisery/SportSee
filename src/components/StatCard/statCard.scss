@@ -32,3 +32,11 @@
         }
     }
 }
+
+@media screen and (max-width: 1440px) {
+    .stat-card {
+        width: 200px;
+        height: 100px;
+        padding: 20px;
+    }
+}

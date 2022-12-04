@@ -37,3 +37,10 @@
         transform: rotate(180deg);
     }
 }
+
+@media screen and (max-width: 1440px) {
+    .navbar {
+        position: fixed;
+        top: 90px;
+    }
+}

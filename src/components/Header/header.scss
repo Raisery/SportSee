@@ -14,11 +14,18 @@
         justify-content: space-around;
         align-items: center;
         width: 100%;
-        
+
         & a {
             text-decoration: none;
             color: $fontContrastedColor;
             font-size: 24px;
         }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .header {
+        position: fixed;
+        z-index: 10;
     }
 }
