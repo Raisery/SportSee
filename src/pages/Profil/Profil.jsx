@@ -14,7 +14,7 @@ import getFetchedUser from '../../fetch/fetchedUser'
  *
  * @returns The profil page with fetched datas or error message if datas are not valid
  */
-export default function MockedProfil() {
+export default function Profil() {
     const [activity, setActivity] = useState(null)
     const [average, setAverage] = useState(null)
     const [main, setMain] = useState(null)
